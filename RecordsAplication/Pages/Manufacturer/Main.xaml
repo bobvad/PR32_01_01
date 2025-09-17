@@ -9,6 +9,10 @@
       Title="Main">
 
     <Grid>
-        
+        <ScrollViewer Margin="10,10,10,10">
+            <StackPanel x:Name="manufacterParent" Margin="10">
+                
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Page>
