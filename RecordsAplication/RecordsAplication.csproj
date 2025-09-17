@@ -63,6 +63,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Classes\DBConnection.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -93,6 +94,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Pages\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\imgCompozition.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\cartbox.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\images.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\didg.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
