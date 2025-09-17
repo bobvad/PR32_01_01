@@ -12,16 +12,23 @@ namespace RecordsAplication.Classes
 {
     public class DBConnection 
     {
-        public static DataTable Connection(string SQL)
+        public static string config= "public static string ConnectionConfig = Server=student.permaviat.ru;Database=base1_ISP_22_4_5;uid=ISP_22_4_5;Password=mBmaR32aEsTb_;Trusted_Connection=True;";
+        public static SqlConnection OpenConnection()
         {
-            DataTable dataTable = new DataTable("Datatable");
-            SqlConnection sqlConnection = new SqlConnection("Server = student.permaviat.ru; Database = base1_ISP_22_4_5; uid = ISP_22_4_5; Password = mBmaR32aEsTb_; Trusted_Connection = True;");
-            sqlConnection.Open();
-            SqlCommand sqlCommand = sqlConnection.CreateCommand();
-            sqlCommand.CommandText = SQL;
-            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
-            sqlDataAdapter.Fill(dataTable);
-            return dataTable;
+            SqlConnection connection = new SqlConnection(config);
+            connection.Open();
+            return connection;
+        }
+        public static SqlDataReader ExecuteReader(string SQL,out SqlConnection connection)
+        {
+            connection = OpenConnection();
+            SqlCommand command = new SqlCommand(SQL,connection);
+            return command.ExecuteReader();
+        }
+        public static void CloseConnection(SqlConnection connection)
+        {
+            connection.Close();
+            SqlConnection.ClearPool(connection);
         }
     }
 }
