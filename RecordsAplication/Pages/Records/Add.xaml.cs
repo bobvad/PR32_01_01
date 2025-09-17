@@ -13,22 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace RecordsAplication
+namespace RecordsAplication.Pages.Records
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для Add.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Add : Page
     {
-        public static MainWindow mainWindow { get; set; }
-        public MainWindow()
+        public Add()
         {
             InitializeComponent();
-            mainWindow = this;
-        }
-        public void OpenPage(Page pages)
-        {
-            frame.Navigate(pages);
         }
     }
 }
