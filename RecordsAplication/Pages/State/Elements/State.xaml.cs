@@ -41,7 +41,7 @@ namespace RecordsAplication.Pages.State.Elements
             if (MessageBox.Show($"Удалить состояние: {_State.Name}?", "Уведомление", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
                 IEnumerable<Classes.Record> AllRecord = Classes.Record.AllRecords();
-                if (AllRecord.Where(x => x.IdState == _State.Id).Count() > 0)
+                if (AllRecord.Where(x => x. == _State.Id).Count() > 0)
                 {
                     MessageBox.Show($"Состояние {_State.Name} невозможно удалить. Для начала удалите зависимости.", "Уведомление");
                 }

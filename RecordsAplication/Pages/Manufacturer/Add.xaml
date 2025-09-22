@@ -8,7 +8,142 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Add">
 
-    <Grid>
-        
+    <Grid Background="#FFE6E6E6">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" MinWidth="72"/>
+            <ColumnDefinition Width="45*"/>
+            <ColumnDefinition Width="46*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border
+        Grid.Column="0"
+        Grid.ColumnSpan="3"
+        BorderBrush="#FFFAFAFA"
+        BorderThickness="1"
+        Background="#FFFAFAFA"
+        CornerRadius="20"
+        VerticalAlignment="Top"
+        Height="384" Margin="16,39,22,0" Grid.RowSpan="3">
+            <Border.Effect>
+                <DropShadowEffect
+                BlurRadius="10"
+                Color="Black"
+                Direction="315"
+                ShadowDepth="5"
+                Opacity="0.5"/>
+            </Border.Effect>
+        </Border>
+
+        <Image
+        Grid.Row="0"
+        Width="64"
+        Height="64"
+        VerticalAlignment="Top"
+        HorizontalAlignment="Left"
+        Source="/Image/didg.png" Margin="17,112,0,0" Grid.ColumnSpan="2"/>
+
+        <TextBlock
+        Grid.Row="0"
+        Grid.Column="1"
+        VerticalAlignment="Top"
+        Margin="13,116,0,0" Height="20"><Run Text="#Наименование "/><Run Language="ru-ru" Text="поставщика"/><Run Text=":"/></TextBlock>
+
+        <TextBox
+        x:Name="tbName"
+        Grid.Row="0"
+        Grid.Column="1"
+        VerticalAlignment="Top"
+        Margin="11,135,3,0"
+         Height="56"
+        TextWrapping="Wrap">
+            <TextBox.Effect>
+                <DropShadowEffect
+                BlurRadius="18"
+                Color="Black"
+                Direction="315"
+                ShadowDepth="2"
+                Opacity="0.5"/>
+            </TextBox.Effect>
+        </TextBox>
+
+        <TextBlock
+        Grid.Row="0"
+        Grid.Column="2"
+        VerticalAlignment="Top"
+        Margin="23,117,29,0"
+        ><Run Text="#"/><Run Language="ru-ru" Text="Страна"/></TextBlock>
+
+        <TextBlock
+        Grid.Column="1"
+        VerticalAlignment="Top"
+        Margin="14,199,47,0" Height="16"><Run Text="#"/><Run Language="ru-ru" Text="Номер телефона"/></TextBlock>
+
+        <TextBox
+ x:Name="tbPhone"
+ Grid.Column="1"
+ VerticalAlignment="Top"
+ Margin="8,219,5,0"
+Height="34"
+ TextWrapping="Wrap">
+            <TextBox.Effect>
+                <DropShadowEffect
+         BlurRadius="18"
+         Color="Black"
+         Direction="315"
+         ShadowDepth="2"
+         Opacity="0.5"/>
+            </TextBox.Effect>
+        </TextBox>
+
+        <Button
+        VerticalAlignment="Top"
+        Height="25"
+        HorizontalAlignment="Left"
+        Margin="190,21,0,0"
+        Width="121"
+        BorderBrush="Orange"
+        Background="Orange"
+        Foreground="White"
+        FontWeight="Bold"
+        Content="Добавить"
+        Click="AddManafacturer" Grid.Column="2" Grid.Row="2">
+            <Button.Effect>
+                <DropShadowEffect
+                BlurRadius="18"
+                Color="Black"
+                Direction="315"
+                ShadowDepth="2"
+                Opacity="0.5"/>
+            </Button.Effect>
+        </Button>
+        <TextBox
+          x:Name="tbEmail"
+          Grid.Column="2"
+          VerticalAlignment="Top"
+          Margin="24,219,42,0"
+           Height="31"
+          TextWrapping="Wrap">
+            <TextBox.Effect>
+                <DropShadowEffect
+                  BlurRadius="18"
+                  Color="Black"
+                  Direction="315"
+                  ShadowDepth="2"
+                  Opacity="0.5"/>
+            </TextBox.Effect>
+        </TextBox>
+        <TextBlock
+          Grid.Row="0"
+          Grid.Column="2"
+          VerticalAlignment="Top"
+          Margin="27,200,57,0"
+          Height="18"><Run Text="#"/><Run Language="ru-ru" Text="Почта"/></TextBlock>
+        <ComboBox Grid.Column="2" HorizontalAlignment="Left" Margin="25,139,0,0" VerticalAlignment="Top" Width="299" Height="29"/>
     </Grid>
 </Page>
