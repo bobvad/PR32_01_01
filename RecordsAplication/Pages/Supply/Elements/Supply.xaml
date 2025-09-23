@@ -1,0 +1,74 @@
+﻿<UserControl x:Class="RecordsAplication.Pages.Supply.Elements.Supply"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:RecordsAplication.Pages.Supply.Elements"
+             mc:Ignorable="d" >
+
+    <Grid>
+            <Border BorderBrush="#FFFAFAFA" Margin="0,0,0,20" BorderThickness="1" Background="#FFFAFAFA" CornerRadius="20"
+                VerticalAlignment="Top" Height="160">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="10" Color="Black" Direction="315" ShadowDepth="5" Opacity="0.5"/>
+                </Border.Effect>
+                <Grid Margin="15">
+                <Image  Source="/Image/cartbox.png" Width="68" Height="68" VerticalAlignment="Top" HorizontalAlignment="Left" />
+                    <Button Content="Изменить" HorizontalAlignment="Left" VerticalAlignment="Top" Width="68" Height="25"
+                        BorderBrush="#FFFF9800" Background="#FFFF9800" Foreground="White" FontWeight="Bold" Margin="0,73,0,0"
+                        Click="EditSupply">
+                        <Button.Effect>
+                            <DropShadowEffect BlurRadius="10" Color="Black" Direction="315" ShadowDepth="2" Opacity="0.5"/>
+                        </Button.Effect>
+                    </Button>
+                    <Button Content="Удалить" HorizontalAlignment="Left" VerticalAlignment="Top" Width="68"
+                        Height="25" BorderBrush="Red" Background="Red" Foreground="White" FontWeight="Bold"
+                        Margin="0,103,0,0" Click="DeleteSupply">
+                        <Button.Effect>
+                            <DropShadowEffect BlurRadius="10" Color="Black" Direction="315" ShadowDepth="2" Opacity="0.5"/>
+                        </Button.Effect>
+                    </Button>
+                    <Grid Margin="73,0,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Content="Наименование поставщика:" Margin="0,0,10,0" VerticalAlignment="Top"/>
+                        <TextBox x:Name="tbManufacturer" IsEnabled="False" Margin="0,26,10,0" Height="50" TextWrapping="Wrap" Text="" VerticalContentAlignment="Center" VerticalAlignment="Top" Padding="10,0">
+                            <TextBox.Effect>
+                                <DropShadowEffect BlurRadius="10" Color="Black" Direction="315" ShadowDepth="2" Opacity="0.5"/>
+                            </TextBox.Effect>
+                        </TextBox>
+                        <Label Content="Дата поставки:" Margin="0,77,10,0" VerticalAlignment="Top"/>
+                        <TextBox x:Name="tbDateDelivery" IsEnabled="False" Margin="0,103,10,0" Height="25" TextWrapping="Wrap"
+                            Text="" VerticalContentAlignment="Center" VerticalAlignment="Top" Padding="10,0">
+
+                            <TextBox.Effect>
+                                <DropShadowEffect BlurRadius="10" Color="Black" Direction="315" ShadowDepth="2" Opacity="0.5"/>
+                            </TextBox.Effect>
+                        </TextBox>
+
+                        <!-- Текст -->
+                        <Label Content="Наименование пластинки:" Margin="10,0,10,0" VerticalAlignment="Top" Grid.Column="1"/>
+                        <!-- Поле для ввода данных -->
+                        <TextBox x:Name="tbRecord" IsEnabled="False" Margin="10,26,10,0" Height="46" TextWrapping="Wrap" Text="" VerticalContentAlignment="Center" VerticalAlignment="Top" Padding="10,0" Grid.Column="1">
+                            <!-- Тень -->
+                            <TextBox.Effect>
+                                <DropShadowEffect BlurRadius="10" Color="Black" Direction="315" ShadowDepth="2" Opacity="0.5"/>
+                            </TextBox.Effect>
+                        </TextBox>
+
+                        <!-- Текст -->
+                        <Label Content="Количество поставки:" Margin="10,77,10,0" VerticalAlignment="Top" Grid.Column="1"/>
+                        <!-- Поле для ввода данных -->
+                        <TextBox x:Name="tbCount" IsEnabled="False" Margin="10,103,10,0" Height="25" TextWrapping="Wrap" Text="" VerticalContentAlignment="Center" VerticalAlignment="Top" Padding="10,0" Grid.Column="1">
+                            <!-- Тень -->
+                            <TextBox.Effect>
+                                <DropShadowEffect BlurRadius="10" Color="Black" Direction="315" ShadowDepth="2" Opacity="0.5"/>
+                            </TextBox.Effect>
+                        </TextBox>
+                    </Grid>
+                </Grid>
+            </Border>
+        </Grid>
+    </UserControl>
