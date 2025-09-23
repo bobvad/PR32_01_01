@@ -12,7 +12,7 @@ namespace RecordsAplication.Classes
     {
             public int Id { get; set; }
             public string Name { get; set; }
-            public int View { get; set; }
+            public int Year { get; set; }
             public int Format { get; set; }
             public int Size { get; set; }
             public int IdManufacturer { get; set; }
@@ -31,7 +31,7 @@ namespace RecordsAplication.Classes
                     {
                         Id = manufacturersQuery.GetInt32(0),
                         Name = manufacturersQuery.GetString(1),
-                        View = manufacturersQuery.GetInt32(2),
+                        Year = manufacturersQuery.GetInt32(2),
                         Format = manufacturersQuery.GetInt32(3),
                         Size = manufacturersQuery.GetInt32(4),
                         IdManufacturer = manufacturersQuery.GetInt32(5),
@@ -52,10 +52,10 @@ namespace RecordsAplication.Classes
                 {
                     DBConnection.ExecuteReader(
                         "INSERT INTO [dbo].[Record] (" +
-                        "[Name], [View], [Format], [Size], [ManufacturerId], [Price], [Status], [Description]) " +
+                        "[Name], [Year], [Format], [Size], [IdManufacturer], [Price], [Status], [Description]) " +
                         "VALUES (" +
                         $"'{this.Name}', " +
-                        $"{this.View}, " +
+                        $"{this.Year}, " +
                         $"{this.Format}, " +
                         $"{this.Size}, " +
                         $"{this.IdManufacturer}, " +
@@ -65,7 +65,7 @@ namespace RecordsAplication.Classes
 
                     this.Id = AllRecords().Where(
                         x => x.Name == this.Name &&
-                        x.View == this.View &&
+                        x.Year == this.Year &&
                         x.Format == this.Format &&
                         x.Size == this.Size &&
                         x.IdManufacturer == this.IdManufacturer &&
@@ -78,10 +78,10 @@ namespace RecordsAplication.Classes
                     DBConnection.ExecuteReader(
                         "UPDATE [dbo].[Record] SET " +
                         $"[Name] = '{this.Name}', " +
-                        $"[View] = {this.View}, " +
+                        $"[Year] = {this.Year}, " +
                         $"[Format] = {this.Format}, " +
                         $"[Size] = {this.Size}, " +
-                        $"[ManufacturerId] = {this.IdManufacturer}, " +
+                        $"[IdManufacturer] = {this.IdManufacturer}, " +
                         $"[Price] = {priceString}, " +
                         $"[Status] = {this.Status}, " +
                         $"[Description] = '{this.Description}' " +

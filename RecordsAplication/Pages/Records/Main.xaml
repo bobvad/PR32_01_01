@@ -15,7 +15,7 @@
                 <ColumnDefinition Width="2.5*"/>
                 <ColumnDefinition Width="2.5*"/>
             </Grid.ColumnDefinitions>
-            <Label Content="Поиск:" Margin="10,0,10,0" VerticalAlignment="Top" Grid.Column="0"/>
+            <Label Content="#Поиск:" Margin="10,0,10,0" VerticalAlignment="Top" Grid.Column="0"/>
             <TextBox x:Name="tbName" Margin="10,30,10,0" Height="25" TextWrapping="Wrap" Text=""
                     VerticalContentAlignment="Center" VerticalAlignment="Top" Padding="10,0" KeyUp="SearchRecords"
                     Grid.Column="0">
@@ -23,15 +23,15 @@
                     <DropShadowEffect BlurRadius="10" Color="Black" Direction="315" ShadowDepth="2" Opacity="0.5"/>
                 </TextBox.Effect>
             </TextBox>
-            <Label Content="Производитель:" Margin="10,4,10,0" VerticalAlignment="Top" Grid.Column="1"/>
-            <ComboBox x:Name="cbManufacturer" Margin="10,30,10,0" Height="25" VerticalAlignment="Top"
+            <Label Content="#Поставщик:" Margin="10,4,10,0" VerticalAlignment="Top" Grid.Column="1"/>
+            <ComboBox x:Name="tbManufacturer" Margin="10,30,10,0" Height="25" VerticalAlignment="Top"
                      Grid.Column="1" SelectionChanged="FilterRecords">
                 <ComboBox.Effect>
                     <DropShadowEffect BlurRadius="10" Color="Black" Direction="315" ShadowDepth="2" Opacity="0.5"/>
                 </ComboBox.Effect>
             </ComboBox>
-            <Label Content="Состояние:" Margin="10,4,10,0" VerticalAlignment="Top" Grid.Column="2"/>
-            <ComboBox x:Name="cbState" Margin="10,30,10,0" Height="25" VerticalAlignment="Top"
+            <Label Content="#Состояние:" Margin="10,4,10,0" VerticalAlignment="Top" Grid.Column="2"/>
+            <ComboBox x:Name="tbState" Margin="10,30,10,0" Height="25" VerticalAlignment="Top"
                      Grid.Column="2" SelectedIndex="0" SelectionChanged="FilterRecords">
                 <ComboBox.Effect>
                     <DropShadowEffect BlurRadius="10" Color="Black" Direction="315" ShadowDepth="2" Opacity="0.5"/>
