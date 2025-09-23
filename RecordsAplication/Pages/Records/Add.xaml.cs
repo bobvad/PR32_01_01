@@ -108,5 +108,10 @@ namespace RecordsAplication.Pages.Records
            
             e.Handled = !char.IsDigit(e.Text, 0) && e.Text != ".";
         }
+
+        private void EditRecord(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
