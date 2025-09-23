@@ -15,7 +15,7 @@ namespace RecordsAplication.Classes
             public int View { get; set; }
             public int Format { get; set; }
             public int Size { get; set; }
-            public int ManufacturerId { get; set; }
+            public int IdManufacturer { get; set; }
             public float Price { get; set; }
             public int Status { get; set; }
             public string Description { get; set; }
@@ -34,7 +34,7 @@ namespace RecordsAplication.Classes
                         View = manufacturersQuery.GetInt32(2),
                         Format = manufacturersQuery.GetInt32(3),
                         Size = manufacturersQuery.GetInt32(4),
-                        ManufacturerId = manufacturersQuery.GetInt32(5),
+                        IdManufacturer = manufacturersQuery.GetInt32(5),
                         Price = manufacturersQuery.GetInt32(6),
                         Status = manufacturersQuery.GetInt32(7),
                         Description = manufacturersQuery.GetString(8)
@@ -58,7 +58,7 @@ namespace RecordsAplication.Classes
                         $"{this.View}, " +
                         $"{this.Format}, " +
                         $"{this.Size}, " +
-                        $"{this.ManufacturerId}, " +
+                        $"{this.IdManufacturer}, " +
                         $"{priceString}, " +
                         $"{this.Status}, " +
                         $"'{this.Description}')",out connection);
@@ -68,7 +68,7 @@ namespace RecordsAplication.Classes
                         x.View == this.View &&
                         x.Format == this.Format &&
                         x.Size == this.Size &&
-                        x.ManufacturerId == this.ManufacturerId &&
+                        x.IdManufacturer == this.IdManufacturer &&
                         x.Price == this.Price &&
                         x.Status == this.Status &&
                         x.Description == this.Description).First().Id;
@@ -81,14 +81,13 @@ namespace RecordsAplication.Classes
                         $"[View] = {this.View}, " +
                         $"[Format] = {this.Format}, " +
                         $"[Size] = {this.Size}, " +
-                        $"[ManufacturerId] = {this.ManufacturerId}, " +
+                        $"[ManufacturerId] = {this.IdManufacturer}, " +
                         $"[Price] = {priceString}, " +
                         $"[Status] = {this.Status}, " +
                         $"[Description] = '{this.Description}' " +
                         $"WHERE [Id] = {this.Id}",out connection);
                 }
             }
-
             public void Delete()
             {
                 SqlConnection connection;

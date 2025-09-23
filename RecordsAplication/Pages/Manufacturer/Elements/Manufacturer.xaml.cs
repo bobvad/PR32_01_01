@@ -42,7 +42,7 @@ namespace RecordsAplication.Pages.Manufacturer.Elements
         {
             if (MessageBox.Show($"Удалить поставщика {_Manufacturer.Name}?", "Уведомление", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
-                if (Classes.Record.AllRecords().Where(s => s.ManufacturerId == _Manufacturer.Id).Count() > 0)
+                if (Classes.Record.AllRecords().Where(s => s.IdManufacturer == _Manufacturer.Id).Count() > 0)
                 {
                     MessageBox.Show($"Поставщика {_Manufacturer.Name} невозможно удалить. Для начала удалите зависимости.", "Ошибка");
                 }
