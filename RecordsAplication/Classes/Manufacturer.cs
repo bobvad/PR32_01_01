@@ -33,7 +33,7 @@ namespace RecordsAplication.Classes
             DBConnection.CloseConnection(connection);
             return allManufacturers;
         }
-        public void Save(bool Update)
+        public void Save(bool Update = false)
         {
             SqlConnection connection = null;
             if (Update = false)

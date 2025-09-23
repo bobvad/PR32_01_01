@@ -50,6 +50,7 @@ namespace RecordsAplication.Pages.State
                         };
                         newState.Save();
                         MessageBox.Show($"Состояние {newState.Name} успешно добавлено.", "Уведомление");
+                        MainWindow.mainWindow.OpenPage(new Add(ChangeState));
                     }
                     else
                     {

@@ -90,6 +90,8 @@
  VerticalAlignment="Top"
  Margin="8,219,5,0"
 Height="34"
+            Text=""
+            PreviewKeyDown="tbPreviewNumber"
  TextWrapping="Wrap">
             <TextBox.Effect>
                 <DropShadowEffect
@@ -102,6 +104,7 @@ Height="34"
         </TextBox>
 
         <Button
+            x:Name="BthAdd"
         VerticalAlignment="Top"
         Height="25"
         HorizontalAlignment="Left"
@@ -144,6 +147,6 @@ Height="34"
           VerticalAlignment="Top"
           Margin="27,200,57,0"
           Height="18"><Run Text="#"/><Run Language="ru-ru" Text="Почта"/></TextBlock>
-        <ComboBox Grid.Column="2" HorizontalAlignment="Left" Margin="25,139,0,0" VerticalAlignment="Top" Width="299" Height="29"/>
+        <ComboBox x:Name="tbCountry" Grid.Column="2" HorizontalAlignment="Left" Margin="25,139,0,0" VerticalAlignment="Top" Width="299" Height="29"/>
     </Grid>
 </Page>
