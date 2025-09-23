@@ -38,7 +38,7 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <Label Content="#Название пластинок:" Margin="27,0,10,0" VerticalAlignment="Top"/>
-                    <TextBox x:Name="tbTitle" IsEnabled="False" Margin="24,25,10,0" Height="25" 
+                    <TextBox x:Name="tbName" IsEnabled="False" Margin="24,25,10,0" Height="25" 
                             TextWrapping="Wrap" Text="" VerticalContentAlignment="Center" 
                             VerticalAlignment="Top" Padding="10,0">
                         <TextBox.Effect>
@@ -47,7 +47,7 @@
                     </TextBox>
 
                     <Label Content="#Формат записи:" Margin="28,54,16,0" VerticalAlignment="Top"/>
-                    <TextBox x:Name="tbArticle" IsEnabled="False" Margin="22,80,10,0" Height="25" 
+                    <TextBox x:Name="tbFormat" IsEnabled="False" Margin="22,80,10,0" Height="25" 
                             TextWrapping="Wrap" Text="" VerticalContentAlignment="Center" 
                             VerticalAlignment="Top" Padding="10,0">
                         <TextBox.Effect>
@@ -81,7 +81,7 @@
                         </TextBox.Effect>
                     </TextBox>
 
-                    <Label Content="#Стоимость:" Margin="13,164,-3,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <Label Content="#Состояние:" Margin="13,164,-3,0" VerticalAlignment="Top" Grid.Column="1"/>
                     <TextBox x:Name="tbPrice" IsEnabled="False" Margin="10,135,0,0" Height="25" 
                             TextWrapping="Wrap" Text="" VerticalContentAlignment="Center" 
                             VerticalAlignment="Top" Padding="10,0" Grid.Column="1">
@@ -98,14 +98,14 @@
                             <DropShadowEffect BlurRadius="10" Color="Black" Direction="315" ShadowDepth="2" Opacity="0.5"/>
                         </TextBox.Effect>
                     </TextBox>
-                    <TextBox x:Name="tbCondition" IsEnabled="False" Margin="10,192,2,0" Height="25" 
+                    <TextBox x:Name="tbState" IsEnabled="False" Margin="10,192,2,0" Height="25" 
                         TextWrapping="Wrap" Text="" VerticalContentAlignment="Center" 
                         VerticalAlignment="Top" Padding="10,0" Grid.Column="1">
                         <TextBox.Effect>
                             <DropShadowEffect BlurRadius="10" Color="Black" Direction="315" ShadowDepth="2" Opacity="0.5"/>
                         </TextBox.Effect>
                     </TextBox>
-                    <Label Content="#Состояние:" Margin="11,107,-2,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <Label Content="#Стоимость:" Margin="11,107,-2,0" VerticalAlignment="Top" Grid.Column="1"/>
                 </Grid>
             </Grid>
         </Border>

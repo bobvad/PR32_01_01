@@ -8,7 +8,99 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Add">
 
-    <Grid>
-        
+    <Grid Width="699" Height="382" >
+        <Border BorderBrush="#FFFAFAFA" BorderThickness="1" Background="#FFFAFAFA" CornerRadius="10"
+             VerticalAlignment="Center" Height="380">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="10" Color="Black" Direction="315" ShadowDepth="5" Opacity="0.5"/>
+            </Border.Effect>
+
+            <Grid Margin="15">
+                <Image Width="60" Height="60" VerticalAlignment="Top" HorizontalAlignment="Left" 
+                    Source="/Image/imgCompozition.png" Margin="16,8,0,0"/>
+
+                <Button x:Name="bthAdd" Content="Добавить" HorizontalAlignment="Left" VerticalAlignment="Top" 
+                     Width="131" Height="35" BorderBrush="#FFFF9800" Background="#FFFF9800" 
+                     Foreground="White" FontWeight="Bold" Click="EditRecord" Margin="530,312,0,0">
+                    <Button.Effect>
+                        <DropShadowEffect BlurRadius="10" Color="Black" Direction="315" ShadowDepth="2" Opacity="0.5"/>
+                    </Button.Effect>
+                </Button>
+
+                <Grid Margin="73,0,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="#Название пластинок:" Margin="27,0,10,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="tbName"  Margin="32,25,10,0" Height="67" 
+                        
+                         VerticalAlignment="Top" Padding="10,0">
+                        <TextBox.Effect>
+                            <DropShadowEffect BlurRadius="10" Color="Black" Direction="315" ShadowDepth="2" Opacity="0.5"/>
+                        </TextBox.Effect>
+                    </TextBox>
+
+                    <Label Content="#Формат записи:" Margin="28,100,16,0" VerticalAlignment="Top"/>
+
+                    <Label Content="#Производитель:" Margin="27,163,9,0" VerticalAlignment="Top"/>
+                    <Label Content="#Год выпуска:" Margin="10,0,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <TextBox x:Name="tbYear"  Margin="10,25,0,0" Height="25" 
+                         TextWrapping="Wrap" Text="" VerticalContentAlignment="Center" 
+                         VerticalAlignment="Top" Padding="10,0" Grid.Column="1">
+                        <TextBox.Effect>
+                            <DropShadowEffect BlurRadius="10" Color="Black" Direction="315" ShadowDepth="2" Opacity="0.5"/>
+                        </TextBox.Effect>
+                    </TextBox>
+
+                    <Label Content="#Размер:" Margin="10,55,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+
+                    <Label Content="#Состояние:" Margin="13,164,-3,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <TextBox x:Name="tbPrice" Margin="10,135,0,0" Height="25" 
+                         TextWrapping="Wrap" Text="" VerticalContentAlignment="Center" 
+                         VerticalAlignment="Top" Padding="10,0" Grid.Column="1">
+                        <TextBox.Effect>
+                            <DropShadowEffect BlurRadius="10" Color="Black" Direction="315" ShadowDepth="2" Opacity="0.5"/>
+                        </TextBox.Effect>
+                    </TextBox>
+
+                    <Label Content="#Заметки:" Margin="32,222,7,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="tbDescription"  Margin="36,247,3,0" Height="50" 
+                         TextWrapping="Wrap" Text="" VerticalContentAlignment="Top" 
+                         VerticalAlignment="Top" Padding="10,5" Grid.ColumnSpan="2">
+                        <TextBox.Effect>
+                            <DropShadowEffect BlurRadius="10" Color="Black" Direction="315" ShadowDepth="2" Opacity="0.5"/>
+                        </TextBox.Effect>
+                    </TextBox>
+                    <Label Content="#Стоимость:" Margin="11,107,-2,0" VerticalAlignment="Top" Grid.Column="1"/>
+                </Grid>
+            </Grid>
+        </Border>
+        <ComboBox x:Name="tbSize" HorizontalAlignment="Left" Height="29" Margin="399,94,0,0" VerticalAlignment="Top" Width="282">
+            <ComboBox.Effect>
+                <DropShadowEffect BlurRadius="10" Color="Black" Direction="315" ShadowDepth="2" Opacity="0.5"/>
+            </ComboBox.Effect>
+            <TextBlock>7 дюймов</TextBlock>
+            <TextBlock>10 дюймов</TextBlock>
+            <TextBlock>12 дюймов</TextBlock>
+            <TextBlock>Иное</TextBlock>
+        </ComboBox>
+        <ComboBox x:Name="tbFormat" HorizontalAlignment="Left" Height="27" Margin="125,146,0,0" VerticalAlignment="Top" Width="247">
+            <ComboBox.Effect>
+                <DropShadowEffect BlurRadius="10" Color="Black" Direction="315" ShadowDepth="2" Opacity="0.5"/>
+            </ComboBox.Effect>
+            <TextBlock>Моно</TextBlock>
+            <TextBlock>Стерео</TextBlock>
+        </ComboBox>
+        <ComboBox x:Name="tbManufacturer"  HorizontalAlignment="Left" Height="28" Margin="126,206,0,0" VerticalAlignment="Top" Width="244">
+            <ComboBox.Effect>
+                <DropShadowEffect BlurRadius="10" Color="Black" Direction="315" ShadowDepth="2" Opacity="0.5"/>
+            </ComboBox.Effect>
+        </ComboBox>
+        <ComboBox x:Name="tbState"  HorizontalAlignment="Left" Height="28" Margin="402,206,0,0" VerticalAlignment="Top" Width="279">
+            <ComboBox.Effect>
+                <DropShadowEffect BlurRadius="10" Color="Black" Direction="315" ShadowDepth="2" Opacity="0.5"/>
+            </ComboBox.Effect>
+        </ComboBox>
     </Grid>
 </Page>
