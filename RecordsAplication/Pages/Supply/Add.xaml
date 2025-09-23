@@ -8,7 +8,55 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Add">
 
-    <Grid>
-        
+    <Grid Background="#FFE6E6E6">
+        <Border BorderBrush="#DFFAFAFA" Margin="20,20,20,20" BorderThickness="1" Background="#FFFAFAFA" CornerRadius="20">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="10" Color="Black" Direction="315" ShadowDepth="5" Opacity="0.5"/>
+            </Border.Effect>
+
+            <Grid Margin="15">
+                <Image Width="68" Height="68" VerticalAlignment="Top" HorizontalAlignment="Left" Source="/Image/cartbox.png"/>
+                <Grid Margin="73,0,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50*"/>
+                        <ColumnDefinition Width="50*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="Наименование поставщика:" Margin="0,0,10,0" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="tbManufacturer" Margin="0,26,10,0" VerticalAlignment="Top">
+                        <ComboBox.Effect>
+                            <DropShadowEffect BlurRadius="10" Color="Black" Direction="315" ShadowDepth="2" Opacity="0.5"/>
+                        </ComboBox.Effect>
+                    </ComboBox>
+
+                    <TextBlock Text="Дата поставки:" Margin="0,53,10,0" VerticalAlignment="Top"/>
+                    <DatePicker x:Name="tbDateDelivery" Margin="0,79,10,0" Height="25" VerticalAlignment="Top">
+                        <DatePicker.Effect>
+                            <DropShadowEffect BlurRadius="10" Color="Black" Direction="315" ShadowDepth="2" Opacity="0.5"/>
+                        </DatePicker.Effect>
+                    </DatePicker>
+
+                    <Label Content="Наименование пластинки:" Margin="10,0,10,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <ComboBox x:Name="tbRecord" Margin="10,26,10,0" VerticalAlignment="Top" Grid.Column="1">
+                        <ComboBox.Effect>
+                            <DropShadowEffect BlurRadius="10" Color="Black" Direction="315" ShadowDepth="2" Opacity="0.5"/>
+                        </ComboBox.Effect>
+                    </ComboBox>
+
+                    <Label Content="Количество поставки:" Margin="10,53,10,0" VerticalAlignment="Top" Grid.Column="1"/>
+                    <TextBox x:Name="tbCount" Margin="10,79,10,0" Height="25" TextWrapping="Wrap" Text="" VerticalContentAlignment="Center" VerticalAlignment="Top" Padding="10,0" Grid.Column="1" PreviewTextInput="tbPreviewNumber">
+                        <TextBox.Effect>
+                            <DropShadowEffect BlurRadius="10" Color="Black" Direction="315" ShadowDepth="2" Opacity="0.5"/>
+                        </TextBox.Effect>
+                    </TextBox>
+
+                    <Button x:Name="addBtn" Content="Добавить" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="100" Grid.Column="1" Height="25" BorderBrush="#FFF98080" Background="#FFFF9800" Foreground="White" FontWeight="Bold" Click="AddSupply">
+                        <Button.Effect>
+                            <DropShadowEffect BlurRadius="10" Color="Black" Direction="315" ShadowDepth="2" Opacity="0.5"/>
+                        </Button.Effect>
+                    </Button>
+                </Grid>
+            </Grid>
+        </Border>
     </Grid>
 </Page>
