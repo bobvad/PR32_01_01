@@ -20,7 +20,7 @@ namespace RecordsAplication.Pages.Supply
     /// </summary>
     public partial class Main : Page
     {
-        IEnumerable<Classes.Supply> AllSupplies = Classes.Supply.AllSupples();
+        IEnumerable<Classes.Supply> AllSupplies = Classes.Supply.AllSupply();
         public Main()
         {
             InitializeComponent();

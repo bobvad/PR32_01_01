@@ -25,7 +25,7 @@
           BorderBrush="#FFFAFAFA"
           BorderThickness="1"
           Background="#FFFAFAFA"
-          CornerRadius="20" Margin="18,30,17,-235">
+          CornerRadius="20" Margin="18,30,17,-190">
             <Border.Effect>
                 <DropShadowEffect
                   BlurRadius="10"
@@ -104,7 +104,7 @@
         <TextBox 
           x:Name="tbDescription"
           Grid.Column="1"
-          Margin="22,106,27,-190"
+          Margin="22,106,27,-140"
           TextWrapping="Wrap" Grid.ColumnSpan="2">
             <TextBox.Effect>
                 <DropShadowEffect
@@ -120,7 +120,7 @@
          x:Name="BthAdd"
           Height="25"
           HorizontalAlignment="Left"
-          Margin="186,386,0,-221"
+          Margin="200,342,0,-177"
           Width="138"
           BorderBrush="Orange"
           Background="Orange"

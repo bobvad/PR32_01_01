@@ -24,7 +24,7 @@ namespace RecordsAplication.Pages.State
         public Add(Classes.State state = null)
         {
             InitializeComponent();
-            if(state != null)
+            if (state != null)
             {
                 ChangeState = state;
                 tbName.Text = state.Name;
@@ -36,41 +36,46 @@ namespace RecordsAplication.Pages.State
 
         private void AddState(object sender, RoutedEventArgs e)
         {
-            if (!string.IsNullOrEmpty(tbName.Text))
+            try
             {
-                if (!string.IsNullOrEmpty(tbSurname.Text))
+                if (!string.IsNullOrEmpty(tbName.Text))
                 {
-                    if (ChangeState == null)
+                    if (!string.IsNullOrEmpty(tbSurname.Text))
                     {
-                        Classes.State newState = new Classes.State()
+                        if (ChangeState == null)
                         {
-                            Name = tbName.Text,
-                            Subname = tbSurname.Text,
-                            Description = tbDescription.Text,
-                        };
-                        newState.Save();
-                        MessageBox.Show($"Состояние {newState.Name} успешно добавлено.", "Уведомление");
-                        MainWindow.mainWindow.OpenPage(new Add(ChangeState));
+                            Classes.State newState = new Classes.State()
+                            {
+                                Name = tbName.Text,
+                                Subname = tbSurname.Text,
+                                Description = tbDescription.Text,
+                            };
+                            newState.Save();
+                            MessageBox.Show($"Состояние {newState.Name} успешно добавлено.", "Уведомление");
+                            MainWindow.mainWindow.OpenPage(new Add(newState));
+                            MainWindow.mainWindow.OpenPage(new Pages.State.Main());
+                        }
+                        else
+                        {
+                            ChangeState.Name = tbName.Text;
+                            ChangeState.Subname = tbSurname.Text;
+                            ChangeState.Description = tbDescription.Text;
+                            ChangeState.Save(true);
+                            MessageBox.Show($"Состояние {ChangeState.Name} успешно изменено.", "Уведомление");
+                            MainWindow.mainWindow.OpenPage(new Pages.State.Main());
+                        }
                     }
                     else
-                    {
-                        ChangeState = new Classes.State()
-                        {
-                            Name = tbName.Text,
-                            Subname = tbSurname.Text,
-                            Description = tbDescription.Text,
-                        };
-                        ChangeState.Save(true);
-                        MessageBox.Show($"Состояние {ChangeState.Name} успешно изменено.", "Уведомление");
-                    }
+                        MessageBox.Show("Пожалуйста, укажите сокращённое наименование состояния", "Уведомление");
                 }
                 else
-                    MessageBox.Show("Пожалуйста, укажите сокращённое наименование состояния", "Уведомление");
+                    MessageBox.Show("Пожалуйста, укажите наименование состояния", "Уведомление");
             }
-            else
-                MessageBox.Show("Пожалуйста, укажите наименование состояния", "Уведомление");
-        }
-            
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
+}
 

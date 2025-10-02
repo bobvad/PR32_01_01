@@ -39,12 +39,11 @@
 
         <Image
             Grid.Row="0"
-            Grid.Column="0"
-            Width="64"
-            Height="64"
+            Width="56"
+            Height="55"
             VerticalAlignment="Top"
-            HorizontalAlignment="Left"
-            Source="/Image/imgCompozition.png"/>
+            HorizontalAlignment="Center"
+            Source="/Image/imgCompozition.png" Margin="0,18,0,0"/>
 
         <TextBlock
             Grid.Row="0"
@@ -55,6 +54,7 @@
 
         <TextBox
             x:Name="tbName"
+            IsEnabled="False"
             Grid.Row="0"
             Grid.Column="1"
             VerticalAlignment="Top"
@@ -80,6 +80,7 @@
 
         <TextBox
             x:Name="tbSurname"
+            IsEnabled="False"
             Grid.Row="0"
             Grid.Column="2"
             VerticalAlignment="Top"
@@ -105,6 +106,7 @@
         <TextBox
             x:Name="tbDescription"
             Grid.Column="1"
+            IsEnabled="False"
             VerticalAlignment="Top"
             Margin="7,74,10,0"
             Height="60"

@@ -70,11 +70,11 @@ namespace RecordsAplication.Pages.Supply
                         newSupply.IdRecord = AllRecords.Where(x => x.Name == tbRecord.SelectedItem.ToString()).First().Id;
                         newSupply.Count = Convert.ToInt32(tbCount.Text);
                         newSupply.DateDelivery = Convert.ToDateTime(tbDateDelivery.SelectedDate.ToString());
-
-                       newSupply.Save();
+                        newSupply.Save();
                         MessageBox.Show($"Поставка №{newSupply.Id} успешно добавлена.", "Уведомление");
-                       MainWindow mainWindow = App.Current.Windows.OfType<MainWindow>().FirstOrDefault();
+                        MainWindow mainWindow = App.Current.Windows.OfType<MainWindow>().FirstOrDefault();
                         mainWindow.OpenPage(new Pages.Supply.Add(newSupply));
+                        MainWindow.mainWindow.OpenPage(new Pages.Supply.Main());
                     }
                     else
                     {
@@ -84,6 +84,7 @@ namespace RecordsAplication.Pages.Supply
                         changeSupply.DateDelivery = Convert.ToDateTime(tbDateDelivery.SelectedDate.ToString());
                         changeSupply.Save(true);
                         MessageBox.Show($"Поставка №{changeSupply.Id} успешно изменена.", "Уведомление");
+                        MainWindow.mainWindow.OpenPage(new Pages.Supply.Main());
                     }
                 }
                 else

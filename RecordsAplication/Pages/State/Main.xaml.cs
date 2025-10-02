@@ -20,9 +20,12 @@ namespace RecordsAplication.Pages.State
     /// </summary>
     public partial class Main : Page
     {
+        public IEnumerable<Classes.State> AllState = Classes.State.AllStates();
         public Main()
         {
             InitializeComponent();
+            foreach (var State in AllState)
+                stateParent.Children.Add(new Pages.State.Elements.State(this,State));
         }
     }
 }

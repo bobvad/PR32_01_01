@@ -59,18 +59,18 @@ namespace RecordsAplication.Pages.Manufacturer
                 return;
             }
 
-            if (CorrectData(tbEmail.Text, @"[a-zA-Z0-9]{7,20}@[a-zA-Z0-9]{7,20}\.[a-zA-Z0-9]{2,3}"))
+            if (!CorrectData(tbEmail.Text, @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"))
             {
                 MessageBox.Show("Пожалуйста, укажите почту поставщика в корректном формате", "Уведомление");
                 return;
             }
 
-            if (CorrectData(tbPhone.Text, @"^8[0-9]{10}$"))
+            if (!CorrectData(tbPhone.Text, @"^8[0-9]{10}$"))
             {
                 MessageBox.Show("Пожалуйста, укажите номер телефона поставщика в формате 8XXXXXXXXXX", "Уведомление");
                 return;
             }
-            if(ChangeManufacturer == null)
+            if (ChangeManufacturer == null)
             {
                 ChangeManufacturer = new Classes.Manufacturer()
                 {
@@ -82,6 +82,7 @@ namespace RecordsAplication.Pages.Manufacturer
                 ChangeManufacturer.Save();
                 MessageBox.Show($"Поставщик {ChangeManufacturer.Name} успешно добавлен.", "Уведомление");
                 MainWindow.mainWindow.OpenPage(new Add(ChangeManufacturer));
+                MainWindow.mainWindow.OpenPage(new Pages.Manufacturer.Main());
             }
             else
             {
@@ -91,17 +92,31 @@ namespace RecordsAplication.Pages.Manufacturer
                 ChangeManufacturer.CountryCode = AllCountrys.Where(x => x.Name == tbCountry.SelectedItem.ToString()).First().Id;
                 ChangeManufacturer.Save(true);
                 MessageBox.Show($"Поставщик {ChangeManufacturer.Name} успешно изменён.", "Уведомление");
+                MainWindow.mainWindow.OpenPage(new Pages.Manufacturer.Main());
             }
         }
-        public bool CorrectData(string value,string sRegex)
+        public bool CorrectData(string value, string sRegex)
         {
-            //string sRegex = "[aA-zZ]{2,20}@[aA-zZ]{2,20}.[aA-zZ]{2,3}";
-            Regex regex = new Regex(sRegex);
-            return regex.Matches(value).Count > 0;
+            if (string.IsNullOrWhiteSpace(value))
+                return false;
+
+            try
+            {
+                return Regex.IsMatch(value, sRegex);
+            }
+            catch
+            {
+                return false;
+            }
         }
         private void tbPreviewNumber(object sender, TextCompositionEventArgs e)
         {
             e.Handled = !(char.IsDigit(e.Text, 0));
+        }
+
+        private void tbPreviewNumber(object sender, KeyEventArgs e)
+        {
+
         }
     }
 }

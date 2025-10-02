@@ -23,36 +23,44 @@ namespace RecordsAplication
     {
         public static MainWindow mainWindow { get; set; }
         public Pages.Records.Main mainRecords = new Pages.Records.Main();
+
         public MainWindow()
         {
             InitializeComponent();
             mainWindow = this;
         }
+
         public void OpenPage(Page pages)
         {
             frame.Navigate(pages);
         }
+
         private void OpenRecordList(object sender, RoutedEventArgs e)
         {
             OpenPage(mainRecords);
             mainRecords.LoadRecord();
         }
+
         private void OpenRecordAdd(object sender, RoutedEventArgs e)
         {
             OpenPage(new Pages.Records.Add());
         }
+
         private void OpenManufacruersList(object sender, RoutedEventArgs e)
         {
             OpenPage(new Pages.Manufacturer.Main());
         }
+
         private void OpenManufacruersAdd(object sender, RoutedEventArgs e)
         {
             OpenPage(new Pages.Manufacturer.Add());
         }
+
         private void OpenSupplyList(object sender, RoutedEventArgs e)
         {
             OpenPage(new Pages.Supply.Main());
         }
+
         private void OpenSupplyAdd(object sender, RoutedEventArgs e)
         {
             OpenPage(new Pages.Supply.Add());
@@ -71,13 +79,31 @@ namespace RecordsAplication
         private void ExportRecord(object sender, RoutedEventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "Excel (*.xlsx)|*.xlsx";
+            saveFileDialog.Filter = "CSV файлы (*.csv)|*.csv|Excel файлы (*.xlsx)|*.xlsx";
             saveFileDialog.RestoreDirectory = true;
-            saveFileDialog.ShowDialog();
-            if (saveFileDialog.FileName != "")
+            saveFileDialog.FileName = $"Пластинки_{DateTime.Now:yyyy-MM-dd_HH-mm}.csv";
+
+            if (saveFileDialog.ShowDialog() == true)
             {
-                Classes.Record.Equals(saveFileDialog.FileName, mainRecords.searchRecords);
+                if (!string.IsNullOrEmpty(saveFileDialog.FileName))
+                {
+                    Classes.Record.ExportToExcel(saveFileDialog.FileName, mainRecords.searchRecords);
+                }
             }
+        }
+        private void OpenManufacrurersAdd(object sender, RoutedEventArgs e)
+        {
+            OpenPage(new Pages.Manufacturer.Add());
+        }
+
+        private void OpenManufacrurersList(object sender, RoutedEventArgs e)
+        {
+            OpenPage(new Pages.Manufacturer.Main());
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

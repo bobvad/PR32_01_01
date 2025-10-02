@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -14,11 +15,12 @@ namespace RecordsAplication.Classes
         public int CountryCode { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
+
         public static IEnumerable<Manufacturer> AllManufacturers()
         {
             List<Manufacturer> allManufacturers = new List<Manufacturer>();
-            SqlConnection connection;
-            SqlDataReader manufacturersQuery = DBConnection.ExecuteReader("SELECT * FROM [dbo].[Manufacturer]", out connection);
+            MySqlConnection connection;
+            MySqlDataReader manufacturersQuery = DBConnection.ExecuteReader("SELECT * FROM Manufacturer", out connection);
             while (manufacturersQuery.Read())
             {
                 allManufacturers.Add(new Manufacturer()
@@ -33,49 +35,44 @@ namespace RecordsAplication.Classes
             DBConnection.CloseConnection(connection);
             return allManufacturers;
         }
+
         public void Save(bool Update = false)
         {
-            SqlConnection connection = null;
-            if (Update = false)
-            {   
-                DBConnection.ExecuteReader($"INSERT INTO" +
-                  $"[dbo].[Manufacturer](" +
-                  $"[Name]," +
-                  $"[CountryCode]" +
-                  $"[Phone]," +
-                  $"[Email])" +
-                  $"VALUES" +
-                  $"(N'{this.Name}'" +
-                  $"N'{this.CountryCode}'" +
-                  $"N'{this.Phone}'" +
-                  $"N'{this.Email}')", out connection);
-                  this.Id = AllManufacturers().Where(x => x.Name == Name &&
-                                                          x.CountryCode == CountryCode &&
-                                                          x.Phone == Phone &&
-                                                          x.Email == Email).First().Id;
+            MySqlConnection connection = null;
+            if (!Update) 
+            {
+                DBConnection.ExecuteReader(
+                    $"INSERT INTO Manufacturer (" +
+                    $"Name, " +
+                    $"CountryCode, " +
+                    $"Phone, " +
+                    $"Email) " +
+                    $"VALUES (" +
+                    $"'{this.Name}', " +
+                    $"{this.CountryCode}, " +
+                    $"'{this.Phone}', " +
+                    $"'{this.Email}')", out connection);
+                this.Id = AllManufacturers().OrderByDescending(x => x.Id).First().Id;
             }
             else
             {
                 DBConnection.ExecuteReader(
-                   $"UPDATE" +
-                        $"[dbo].[Manufacturer]" +
-                   $"SET" +
-                      $"[Name] = N'{this.Name}'," +
-                      $"[CountryCode] = N'{this.CountryCode}'," +
-                      $"[Phone] = N'{this.Phone}'," +
-                      $"[Email] = N'{this.Email}'," +
-                   $"WHERE" +
-                         $"[Id] = N'{this.Id}',", out connection
-               );
+                    $"UPDATE Manufacturer " +
+                    $"SET " +
+                    $"Name = '{this.Name}', " +
+                    $"CountryCode = {this.CountryCode}, " +
+                    $"Phone = '{this.Phone}', " +
+                    $"Email = '{this.Email}' " +
+                    $"WHERE Id = {this.Id}", out connection);
             }
             DBConnection.CloseConnection(connection);
         }
+
         public void Delete()
         {
-            SqlConnection connection;
+            MySqlConnection connection;
             DBConnection.ExecuteReader(
-                $"DELETE FROM [dbo].[Manufacturer] WHERE [Id] = {this.Id}", out connection
-                );
+                $"DELETE FROM Manufacturer WHERE Id = {this.Id}", out connection);
             DBConnection.CloseConnection(connection);
         }
     }

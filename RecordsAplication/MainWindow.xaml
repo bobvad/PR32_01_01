@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RecordsAplication"
         mc:Ignorable="d"
-        Title="Учёт потсавок виниловых пластинок"
+        WindowStartupLocation="CenterScreen"
+        Title="Учёт поставок виниловых пластинок"
         Height="450"
         Width="800"
         MinWidth="800"
@@ -17,7 +18,7 @@
                 <MenuItem Header="Добавить" Click="OpenRecordAdd"></MenuItem>
                 <MenuItem Header="Экспортировать" Click="ExportRecord"></MenuItem>
             </MenuItem>
-            <MenuItem Header="Поставщики">
+            <MenuItem Header="Поставщики" Click="MenuItem_Click">
                 <MenuItem Header="Список" Click="OpenManufacrurersList"></MenuItem>
                 <MenuItem Header="Добавить" Click="OpenManufacrurersAdd"></MenuItem>
             </MenuItem>
@@ -26,8 +27,8 @@
                 <MenuItem Header="Добавить" Click="OpenSupplyAdd"></MenuItem>
             </MenuItem>
             <MenuItem Header="Состояние">
-                <MenuItem Header="Список" Click="OpenRecordList"></MenuItem>
-                <MenuItem Header="Добавить" Click="OpenRecordAdd"></MenuItem>
+                <MenuItem Header="Список" Click="OpenStateList"></MenuItem>
+                <MenuItem Header="Добавить" Click="OpenStateAdd"></MenuItem>
             </MenuItem>
         </Menu>
         <Frame x:Name="frame" NavigationUIVisibility="Hidden" Margin="0,25,0,0"/>

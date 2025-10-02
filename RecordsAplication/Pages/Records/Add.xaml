@@ -21,7 +21,7 @@
 
                 <Button x:Name="bthAdd" Content="Добавить" HorizontalAlignment="Left" VerticalAlignment="Top" 
                      Width="131" Height="35" BorderBrush="#FFFF9800" Background="#FFFF9800" 
-                     Foreground="White" FontWeight="Bold" Click="EditRecord" Margin="530,312,0,0">
+                     Foreground="White" FontWeight="Bold" Click="AddRecord" Margin="530,312,0,0">
                     <Button.Effect>
                         <DropShadowEffect BlurRadius="10" Color="Black" Direction="315" ShadowDepth="2" Opacity="0.5"/>
                     </Button.Effect>

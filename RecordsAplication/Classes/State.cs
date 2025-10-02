@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -13,11 +14,11 @@ namespace RecordsAplication.Classes
         public string Name { get; set; }
         public string Subname { get; set; }
         public string Description { get; set; }
-        public static IEnumerable<State> AllStates ()
+        public static IEnumerable<State> AllStates()
         {
             List<State> allStates = new List<State>();
-            SqlConnection connection;
-            SqlDataReader stateQuery = DBConnection.ExecuteReader("SELECT * FROM [dbo].[State]", out connection);
+            MySqlConnection connection;
+            MySqlDataReader stateQuery = DBConnection.ExecuteReader("SELECT * FROM State", out connection);
             while (stateQuery.Read())
             {
                 allStates.Add(new State()
@@ -33,44 +34,34 @@ namespace RecordsAplication.Classes
         }
         public void Save(bool update = false)
         {
-            SqlConnection connection = null;
+            MySqlConnection connection = null;
             if (update == false)
             {
-                DBConnection.ExecuteReader($"INSERT INTO" +
-                    $"[dbo].[State](" + 
-                    $"[Name]," +
-                    $"[Subname]" +
-                    $"[Description])" +
-                    $"VALUES" + 
-                    $"(N'{this.Name}'" +
-                    $"N'{this.Subname}'" +
-                    $"N'{this.Description}')", out connection);
-                DBConnection.CloseConnection(connection);
+                DBConnection.ExecuteReader(
+                    "INSERT INTO State (Name, Subname, Description) " +
+                    $"VALUES ('{this.Name}', '{this.Subname}', '{this.Description}')", out connection);
 
                 this.Id = AllStates().Where(x => x.Name == this.Name &&
-                                                      this.Subname == this.Subname &&
-                                                      this.Description == this.Description).First().Id;
-                ;
+                                                      x.Subname == this.Subname &&
+                                                      x.Description == this.Description).First().Id;
             }
             else
             {
                 DBConnection.ExecuteReader(
-                    $"UPDATE" +
-                         $"[dbo].[State]" +
-                    $"SET" +
-                       $"[Name] = N'{this.Name}'," +
-                       $"[Subname] = N'{this.Subname}'," +
-                       $"[Description] = N'{this.Description}'," +
-                    $"WHERE" +
-                          $"[Id] = N'{this.Id}',", out connection
+                    "UPDATE State " +
+                    "SET " +
+                    $"Name = '{this.Name}', " +
+                    $"Subname = '{this.Subname}', " +
+                    $"Description = '{this.Description}' " +
+                    $"WHERE Id = {this.Id}", out connection
                 );
-                DBConnection.CloseConnection(connection);
             }
+            DBConnection.CloseConnection(connection);
         }
         public void Delete()
         {
-            SqlConnection connection;
-            DBConnection.ExecuteReader($"DELETE FROM [dbo].[State] WHERE [Id] = {this.Id}", out connection);
+            MySqlConnection connection;
+            DBConnection.ExecuteReader($"DELETE FROM State WHERE Id = {this.Id}", out connection);
             DBConnection.CloseConnection(connection);
         }
     }

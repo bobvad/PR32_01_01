@@ -50,7 +50,7 @@ namespace RecordsAplication.Pages.Records.Elements
             }
             tbManufacturer.Text = AllManufacturer.Where(x => x.Id == record.IdManufacturer).First().Name;
             tbPrice.Text = record.Price.ToString();
-            tbState.Text = AllState.Where(x => x.Id == record.Id).First().Name;
+            tbState.Text = AllState.Where(x => x.Id == record.Status).FirstOrDefault()?.Name ?? "Неизвестно";
             tbDescription.Text = record.Description;
         }
         private void EditRecord(object sender, RoutedEventArgs e)

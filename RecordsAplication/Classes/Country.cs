@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using MySql.Data.MySqlClient;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 namespace RecordsAplication.Classes
 {
@@ -9,8 +10,8 @@ namespace RecordsAplication.Classes
         public static IEnumerable<Country> AllCountrys()
         {
             List<Country> allCountrys = new List<Country>();
-            SqlConnection connection;
-            SqlDataReader countrysQuery = DBConnection.ExecuteReader("SELECT * FROM [dbo].[Country]",out connection);
+            MySqlConnection connection;
+            MySqlDataReader countrysQuery = DBConnection.ExecuteReader("SELECT * FROM Country",out connection);
             while (countrysQuery.Read())
             {
                 allCountrys.Add(new Country()
